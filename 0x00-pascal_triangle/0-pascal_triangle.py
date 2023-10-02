@@ -9,24 +9,24 @@ def pascal_triangle(n):
     if n <= 0:
         return []
     
-    pascal = [[]]
+    pascal = []
     
     for i in range(n):
         # first element
         my_List = [1]
         if i == 0:
-            pasTran.append(my_List)
+            pascal.append(my_List)
             continue
         
         k = i - 1
-        for j in range(len(pasTran[k])):
-            if j + 1 == len(pasTran[k]):
+        for j in range(len(pascal[k])):
+            if j + 1 == len(pascal[k]):
                 # last element
                 my_List.append(1)
                 break
             # Add two previous values to get current next value
-            nextVal = pasTran[k][j] + pasTran[k][j + 1]
+            nextVal = pascal[k][j] + pascal[k][j + 1]
             my_List.append(nextVal)
-        pasTran.append(my_List)
+        pascal.append(my_List)
         
-    return pasTran
+    return pascal
