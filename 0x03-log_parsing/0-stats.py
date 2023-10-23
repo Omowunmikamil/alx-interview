@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 '''A script for parsing HTTP request logs.
 '''
-import re
+import sys
 
 
 def extract_input(input_line):
@@ -19,7 +19,7 @@ def extract_input(input_line):
         'file_size': 0,
     }
     log_fmt = '{}\\-{}{}{}{}\\s*'.format(fp[0], fp[1], fp[2], fp[3], fp[4])
-    resp_match = re.fullmatch(log_fmt, input_line)
+    resp_match = sys.fullmatch(log_fmt, input_line)
     if resp_match is not None:
         status_code = resp_match.group('status_code')
         file_size = int(resp_match.group('file_size'))
