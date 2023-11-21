@@ -17,12 +17,12 @@ request(starWarsAPI + endPoint + movieID, function (error, _, body) {
 
 /* reculsively and synchronously request for each character
 and prints out the casts */
-function Printresult (casts, counter = 1) {
+function Printresult (casts, counter = 0) {
   request(casts[counter], function (error, _, body) {
     if (error) console.error(error);
     console.log(JSON.parse(body).name);
     if (++counter < casts.length) {
-      Printresult(cast, counter++);
+      Printresult(casts, counter++);
     }
   });
 }
