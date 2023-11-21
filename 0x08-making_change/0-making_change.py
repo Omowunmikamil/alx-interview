@@ -11,29 +11,29 @@ def makeChange(coins, total):
         total (int): The given amount
 
     Return:
-        changes (int): the fewest number of coin
+        change (int): the fewest number of coin
     """
 
     if total < 1:
         return 0
 
-    changes = -1
+    change = -1
 
     if len(coins):
         coins = sorted(coins, reverse=True)
         noOfCoins = len(coins)
-        changes = 0
+        change = 0
 
         for i in range(noOfCoins):
             while total:
                 # if total >= 1:
                 if total - coins[i] >= 0:
-                    changes += 1
+                    change += 1
                     total -= coins[i]
                 else:
                     break
 
         if total != 0:
-            changes = -1
+            change = -1
 
-    return changes
+    return change
