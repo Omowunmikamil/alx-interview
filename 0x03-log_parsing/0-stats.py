@@ -29,13 +29,13 @@ try:
 
         try:
             size += int(stlist[-1])
-        except:
+        except size.DoesNotExist:
             pass
 
         try:
             if stlist[-2] in sts:
                 sts[stlist[-2]] += 1
-        except:
+        except stlist.DoesNotExist:
             pass
     printsts(sts, size)
 
